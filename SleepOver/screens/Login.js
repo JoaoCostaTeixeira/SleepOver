@@ -15,10 +15,6 @@ import {
 import { Icon } from 'expo';
 export default class Login extends React.Component {
 
-  static navigationOptions =
-  {
-     title: 'Login',
-  };
   
   constructor(props) {
     super(props)
@@ -50,13 +46,13 @@ export default class Login extends React.Component {
 
           <View style={styles.getStartedContainer}>
               <TextInput
-                  style={{height: 40,width:250, borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
+                  style={{height: 40,width:'65%', borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
                   placeholder=' Email'
               />
               <View style={{flexDirection:'row', borderColor:'gray', borderWidth:1}}>
              
                 <TextInput
-                    style={{height: 17,width:215, borderColor: 'gray', borderWidth: 0, paddingHorizontal:10, marginVertical:10}}
+                    style={{height: 17,width:'57%', borderColor: 'gray', borderWidth: 0, paddingHorizontal:10, marginVertical:10}}
                     placeholder=' Password'
                     secureTextEntry={this.state.pass}
                 />
@@ -74,24 +70,25 @@ export default class Login extends React.Component {
               </View>
             </View > 
             
-            <View style={styles.forgotPass}>
-            <CheckBox
-                  value={this.state.checked}
-                  onChange={() => this.onChangeCheck()} />
-                <Text style={{color: '#5a6570', marginTop:6}}>Remember me       <Text style={{color: '#34CCAE', textAlign:'right' }}> Forgot Password? </Text></Text>
+            <View style={styles.welcomeContainer}>
+                  <CheckBox
+                    value={this.state.checked}
+                    onChange={() => this.onChangeCheck()} />
+                  <Text style={{color: '#5a6570', marginTop:6, textAlign:'center'}}> Remember me   <Text style={{color: '#34CCAE', textAlign:'center'}}> Forgot Password? </Text> </Text>      
+               
             </View> 
 
               
            <View style={styles.buttons}>
               <Button 
-               onPress={this.props.changeState}
+               onPress={()=> this.props.navigation.navigate('AppNavigator')}
                title="Login"
                color="#34CCAE"
               />
           </View>
 
           <View style={styles.welcomeContainer}>
-                <Text style={{color: '#5a6570'}}> Don't have account? <Text style={{color: '#34CCAE'}} onPress={this.props.changeReg}> Signup here</Text> </Text>
+                <Text style={{color: '#5a6570'}}> Don't have account? <Text style={{color: '#34CCAE'}} onPress={()=> this.props.navigation.navigate('Register')}> Signup here</Text> </Text>
             </View> 
 
         </ScrollView>
@@ -119,82 +116,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
+    flexDirection:'row',
+    justifyContent: 'center',
   },
   welcomeImage: {
     width: 250,
     height: 175,
     resizeMode: 'contain',
-    marginTop: 100,
+    marginTop: 50,
     marginLeft: -10,
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    width: '100%',
   },
   buttons: {
     marginVertical: 10,
-    marginHorizontal: 54,
+    width:'65%',
+    marginLeft:'17.5%',
+    justifyContent: 'center',
   },
   forgotPass: {
-    textAlign: 'center',
     marginVertical: 4,
-    marginHorizontal: 45,
+    alignItems:'center',
     flexDirection: 'row',
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  }
 });

@@ -14,11 +14,6 @@ import {
 } from 'react-native';
 export default class Register extends React.Component {
 
-  static navigationOptions =
-  {
-     title: 'Login',
-  };
-  
   constructor(props) {
     super(props)
     this.state = {
@@ -63,21 +58,21 @@ export default class Register extends React.Component {
 
           <View style={styles.getStartedContainer}>
               <TextInput
-                  style={{height: 40,width:250, borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
+                  style={styles.inputBox}
                   placeholder=' Name'
               />
                 <TextInput
-                  style={{height: 40,width:250, borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
+                  style={styles.inputBox}
                   placeholder=' Email'
               />
 
               <TextInput
-                  style={{height: 40,width:250, borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
+                  style={styles.inputBox}
                   placeholder=' Password'
                   secureTextEntry={true}
               />
               <TextInput
-                  style={{height: 40,width:250, borderColor: 'gray', borderWidth: 1, paddingHorizontal:10, marginVertical:10}}
+                  style={styles.inputBox}
                   placeholder=' Confirm Password'
                   secureTextEntry={true}
               />
@@ -85,7 +80,7 @@ export default class Register extends React.Component {
 
             </View > 
 
-            <View style={styles.forgotPass}>
+            <View style={styles.welcomeContainer2}>
                 <CheckBox
                     value={this.state.checked}
                     onChange={() => this.onChangeCheck()} />
@@ -99,14 +94,14 @@ export default class Register extends React.Component {
 
            <View style={styles.buttons}>
               <Button 
-               onPress={this.props.changeState}
+               onPress={() => this.props.navigation.navigate('AppNavigator')}
                title="Register"
                color="#34CCAE"
               />
           </View>
 
           <View style={styles.welcomeContainer}>
-                <Text style={{color: '#5a6570'}}> Already have account? <Text style={{color: '#34CCAE'}} onPress={this.props.changeReg}> Login here</Text> </Text>
+                <Text style={{color: '#5a6570'}}> Already have account? <Text style={{color: '#34CCAE'}}  onPress={()=> this.props.navigation.navigate('Login')}> Login here</Text> </Text>
             </View> 
 
         </ScrollView>
@@ -120,20 +115,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
+  inputBox:{
+    height: 40,width:'65%', 
+    borderColor: 'gray', 
+    borderWidth: 1, 
+    paddingHorizontal:10, 
+    marginVertical:10
   },
   contentContainer: {
     paddingTop: 30,
   },
+  welcomeContainer2: {
+    marginLeft:'17.5%',
+    marginTop: 10,
+    marginBottom: 20,
+    flexDirection:'row',
+  },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 5,
-    marginBottom: 5,
+    marginTop: 10,
+    marginBottom: 20,
+    flexDirection:'row',
+    justifyContent: 'center',
   },
   welcomeImage: {
     width: 250,
@@ -144,72 +147,11 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
   },
   buttons: {
     marginVertical: 10,
-    marginHorizontal: 54,
-  },
-  forgotPass: {
-    textAlign: 'center',
-    marginVertical: 4,
-    marginHorizontal: 45,
-    flexDirection: 'row',
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+    width:'65%',
+    marginLeft:'17.5%',
+    justifyContent: 'center',
   },
 });

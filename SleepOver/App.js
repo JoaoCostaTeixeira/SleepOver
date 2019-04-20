@@ -2,65 +2,35 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Button } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import Login from './screens/Login'
-import Register from './screens/Register'
+import LogNav from './navigation/LogNav';
+import Loading from './screens/Loading'
 
 export default class App extends React.Component {
   
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isLoadingComplete: false,
       login:false,
       register: false,
     }
-
-    this.changeState = this.changeState.bind(this);
-    this.changeReg = this.changeReg.bind(this);
   }
-
-  changeState() {
-    this.setState({
-      login: true,
-    })
-    console.log("mudou");
-  }
-  changeReg(){
-    this.setState({
-      register: !this.state.register,
-    })
+  
+  componentDidMount(){
+     setTimeout(() => this.setState({isLoadingComplete: true}), 3000);
   }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
+          <Loading />
       );
-    }else if(this.state.register){
-      return (
-        <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <Register  changeReg = {this.changeReg}/>
-        </View>
-      );
-    }else if(!this.state.login) {
+    }else{
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <Login  changeState = {this.changeState} changeReg={this.changeReg} />
-        </View>
-      );
-    }
-    else{
-      return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <LogNav  />
         </View>
       );
     }
@@ -69,8 +39,8 @@ export default class App extends React.Component {
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
+        require('./assets/images/logo.png'),
+        require('./assets/images/logo.png'),
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
@@ -86,10 +56,6 @@ export default class App extends React.Component {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry
     console.warn(error);
-  };
-
-  _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
   };
 }
 

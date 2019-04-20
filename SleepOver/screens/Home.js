@@ -12,33 +12,88 @@ import {
   Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { Icon } from 'expo';
 import { MonoText } from '../components/StyledText';
 
 export default class Home extends React.Component {
   static navigationOptions =
   {
      title: 'Home',
+     
   };
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
+          <View style={styles.homeButton}>
+            <View style={{marginHorizontal:10}}>
+              <Image
+                  source={
+                    __DEV__
+                      ? require('../assets/images/casa1.jpg')
+                      : require('../assets/images/casa1.jpg')
+                  }
+                  style={styles.welcomeImage}
+                />
+            </View>
+            <View style={{flexDirection:'column', marginHorizontal:5, marginVertical:10}}>
+              <Text style={{fontSize:15, color: 'blue'}}>Rua José Soares de Almeida</Text>
+              <Text>PT</Text>
+              <View style={{flexDirection:'row'}}>
+                  <Text style={{marginTop:11}}>100 reviews</Text>
+                  <Text style={{textAlign:'right', fontSize:25, fontWeight:'bold', marginHorizontal:55}}> 50€</Text>
+              </View>
+            </View>
           </View>
-
-          <View style={styles.getStartedContainer}>
-              <Text>Login:</Text>
+          <View style={styles.homeButton}>
+            <View style={{marginHorizontal:10}}>
+              <Image
+                  source={
+                    __DEV__
+                      ? require('../assets/images/casa1.jpg')
+                      : require('../assets/images/casa1.jpg')
+                  }
+                  style={styles.welcomeImage}
+                />
+            </View>
+            <View style={{flexDirection:'column', marginHorizontal:5, marginVertical:10}}>
+              <Text style={{fontSize:15, color: 'blue'}}>Rua José Soares de Almeida</Text>
+              <Text>PT</Text>
+              <View style={{flexDirection:'row'}}>
+                  <Text style={{marginTop:11}}>100 reviews</Text>
+                  <Text style={{textAlign:'right', fontSize:25, fontWeight:'bold', marginHorizontal:55}}> 50€</Text>
+              </View>
+            </View>
           </View>
+          <View style={styles.homeButton}>
+            <View style={{marginHorizontal:10}}>
+              <Image
+                  source={
+                    __DEV__
+                      ? require('../assets/images/casa1.jpg')
+                      : require('../assets/images/casa1.jpg')
+                  }
+                  style={styles.welcomeImage}
+                />
+            </View>
+            <View style={{flexDirection:'column', marginHorizontal:5, marginVertical:10}}>
+              <Text style={{fontSize:15, color: 'blue'}}>Rua José Soares de Almeida</Text>
+              <Text>PT</Text>
+              <View style={{flexDirection:'row'}}>
+                  <Text style={{marginTop:11}}>100 reviews</Text>
+                  <Text style={{textAlign:'right', fontSize:25, fontWeight:'bold', marginHorizontal:55}}> 50€</Text>
+              </View>
+            </View>
+          </View>
+          <View style={{postition:'absolute', alignItems: 'center', marginVertical:65, justifyContent: 'center' }}> 
+              <Icon.Ionicons
+                    name='md-add-circle-outline'
+                    size={50}
+                    color={'#b8e5b7'}
+               />
+          </View>
+          
         </ScrollView>
       </View>
     );
@@ -49,6 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop: 15,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -56,6 +112,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 19,
     textAlign: 'center',
+  },
+  homeButton:{
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    flexDirection:'row',  
+    marginHorizontal:8, 
+    borderBottomWidth:1,
+    marginVertical:8, 
+    height:85, 
+    
   },
   contentContainer: {
     paddingTop: 30,
@@ -66,10 +134,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 120,
+    height: 100,
     resizeMode: 'contain',
-    marginTop: 3,
+    marginTop: -10,
     marginLeft: -10,
   },
   getStartedContainer: {
