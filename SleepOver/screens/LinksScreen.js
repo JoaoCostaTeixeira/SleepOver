@@ -16,19 +16,20 @@ import {
 
 export default class LinkScreen extends Component {
 
+  static navigationOptions =
+  {
+     title: 'João',
+     
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        {id:1, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit amet"},
-        {id:2, date:"9:50 am", type:'out', message: "Lorem ipsum dolor sit amet"} ,
-        {id:3, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit a met"}, 
-        {id:4, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit a met"}, 
-        {id:5, date:"9:50 am", type:'out', message: "Lorem ipsum dolor sit a met"}, 
-        {id:6, date:"9:50 am", type:'out', message: "Lorem ipsum dolor sit a met"}, 
-        {id:7, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit a met"}, 
-        {id:8, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit a met"},
-        {id:9, date:"9:50 am", type:'in',  message: "Lorem ipsum dolor sit a met"},
+        {id:1, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."},
+        {id:2, date:"9:50 am", type:'out', message: "Obrigado pela Reserva."} ,
+        {id:3, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."}, 
+        {id:4, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."}, 
       ]
     };
   }
@@ -66,11 +67,6 @@ export default class LinkScreen extends Component {
               </View>
             )
           }}/>
-          <View style={{width:'100%',height:35,backgroundColor:'#3273db',}} >
-            <TouchableOpacity onPress={ () => alert("reservado")}>
-              <Text style={{textAlign:'center', marginTop:5, fontSize:15, color:'white',}}>Make Reservation</Text>
-            </TouchableOpacity>
-        </View>
         <View style={styles.footer}>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputs}

@@ -1,133 +1,78 @@
-import React from 'react';
+//This is an example code to show React Native Round Shape Image//
+import React, { Component } from 'react';
+//import react in our code. 
 
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  CheckBox,
-} from 'react-native';
-export default class SettingsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'app.json',
-  };
+import { Platform, StyleSheet, View, Image, Text, ScrollView, Button } from 'react-native';
+//import all the components we are going to use. 
 
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>              
-           <View style={styles.buttons}>
-              <Button 
-               onPress={()=> this.props.navigation.navigate('Login')}
-               title="LogOut"
-               color="#34CCAE"
-              />
-          </View>
-        </ScrollView>
+      <View style={styles.MainContainer}>
+        <Image
+          source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png',}}
+          style={{ width: 120, height: 120, borderRadius: 120 / 2, marginTop:50 }}
+        />
+        <Text style={styles.text}>João Teixeira</Text>
+        <Text style={styles.text2}>joaocostateixeira@ua.pt</Text>
+         <View style={styles.MainContainer2}>
+            <View >
+                <Button
+                    
+                      onPress={()=> alert('mudou')}
+                      title="Change to landlord"
+                      color="#34CCAE"
+                />
+            </View>
+            <View style={{marginLeft:9,}}>
+                <Button
+                      onPress={()=> alert('mudou')}
+                      title="LogOut"
+                      color="#34CCAE"
+                />
+             </View>
+        </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
-  container: {
+  MainContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    backgroundColor: '#e0dcdc',
   },
-  welcomeImage: {
-    width: 250,
-    height: 175,
-    resizeMode: 'contain',
-    marginTop: 50,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
+   MainContainer2: {
+    marginTop:5,
+    flexDirection:'row',
     alignItems: 'center',
-    marginHorizontal: 50,
+    backgroundColor: '#e0dcdc',
   },
-  buttons: {
-    marginVertical: 10,
-    marginHorizontal: 54,
+  bottomcontroler: {
+    marginTop:30,
+    height:'75%',
+    width:'100%',
+    backgroundColor: '#ccdfff',
   },
-  forgotPass: {
-    textAlign: 'center',
-    marginVertical: 4,
-    marginHorizontal: 45,
-    flexDirection: 'row',
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
+  text: {
     marginTop: 15,
-    alignItems: 'center',
+    fontSize: 20,
+    color: '#2c2d30',
+    fontWeight: 'bold',
   },
-  helpLink: {
-    paddingVertical: 15,
+  text2: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 15,
+    color: '#2c2d30',
+    fontWeight: 'bold',
   },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+   text3: {
+    marginTop: 10,
+    fontSize: 20,
+    color: '#2c2d30',
+    marginLeft:10,
   },
 });
+

@@ -7,7 +7,8 @@ import Home from '../screens/Home';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import Login from '../screens/Login';
-
+import MessegeBox from '../screens/MessegeBox';
+import Reservas from '../screens/Reservas';
 
 const HomeStack = createStackNavigator({
   Home: Home,
@@ -28,6 +29,7 @@ HomeStack.navigationOptions = {
 };
 
 const LinksStack = createStackNavigator({
+  Messege : MessegeBox,
   Links: LinksScreen,
 });
 
@@ -55,8 +57,24 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const ReservaStack = createStackNavigator({
+  Settings: Reservas,
+});
+
+ReservaStack.navigationOptions = {
+  tabBarLabel: 'Reservas',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-settings'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
+  ReservaStack,
   SettingsStack,
+
 });
