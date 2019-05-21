@@ -16,24 +16,21 @@ export default class App extends React.Component {
       register: false,
     }
   }
+
+
   
   componentDidMount(){
+    console.disableYellowBox = true;
      setTimeout(() => this.setState({isLoadingComplete: true}), 3000);
   }
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-          <Loading />
-      );
-    }else{
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <LogNav  />
         </View>
       );
-    }
   }
 
   _loadResourcesAsync = async () => {
