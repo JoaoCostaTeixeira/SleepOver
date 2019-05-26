@@ -9,9 +9,11 @@ import SettingsScreen from '../screens/SettingsScreen';
 import Login from '../screens/Login';
 import MessegeBox from '../screens/MessegeBox';
 import Reservas from '../screens/Reservas';
+import House from '../screens/House'
 
 const HomeStack = createStackNavigator({
   Home: Home,
+  House: House,
 });
 
 HomeStack.navigationOptions = {
@@ -22,7 +24,7 @@ HomeStack.navigationOptions = {
       name={
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-home'
+          : 'md-search'
       }
     />
   ),
@@ -48,11 +50,11 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-settings'}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-person'}
     />
   ),
 };
@@ -66,7 +68,7 @@ ReservaStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-settings'}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-list'}
     />
   ),
 };

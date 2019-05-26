@@ -7,6 +7,18 @@ import { Platform, StyleSheet, View, Image, Text, ScrollView, Button } from 'rea
 
 
 export default class App extends Component {
+
+  static navigationOptions =
+  {
+     title: 'Profile',
+     
+  };
+
+  constructor(props){
+    super(props);
+  }
+
+
   render() {
     return (
       <View style={styles.MainContainer}>
@@ -15,24 +27,69 @@ export default class App extends Component {
           style={{ width: 120, height: 120, borderRadius: 120 / 2, marginTop:50 }}
         />
         <Text style={styles.text}>João Teixeira</Text>
-        <Text style={styles.text2}>joaocostateixeira@ua.pt</Text>
          <View style={styles.MainContainer2}>
-            <View >
-                <Button
-                    
-                      onPress={()=> alert('mudou')}
-                      title="Change to landlord"
-                      color="#34CCAE"
-                />
-            </View>
             <View style={{marginLeft:9,}}>
                 <Button
-                      onPress={()=> alert('mudou')}
+                      onPress={()=> this.props.navigation.navigate('Login')}
                       title="LogOut"
                       color="#34CCAE"
                 />
              </View>
         </View>
+        <View style={{backgroundColor:"#cecaca", marginTop:50, marginBottom:10, width:"90%", marginLeft:"5%", marginRight:"5%"}}>
+
+
+        <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'http://simpleicon.com/wp-content/uploads/phone-symbol-2.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>912 912 912</Text>
+          </View>
+          <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'https://cdn3.iconfinder.com/data/icons/email-51/48/25-512.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>joaocostateixeira@ua.pt</Text>
+          </View>
+          
+
+
+          <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/19-512.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>Rua da Aviação Naval</Text>
+          </View>
+
+          <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'https://cdn3.iconfinder.com/data/icons/kitchen-universe-4/140/16_birthday_cake-512.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>23/01/1997</Text>
+          </View>
+
+        
+
+          <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'https://cdn3.iconfinder.com/data/icons/medcare/512/Fertility-512.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>Male</Text>
+          </View>
+          <View style={{ marginLeft:15, marginRight:15, marginTop:10, flexDirection:'row',}}>
+              <Image 
+              source={{uri: 'https://cdn3.iconfinder.com/data/icons/business-glyph-vol-01/100/Job-512.png'}}
+              style={{width:30,height: 30}}
+              />
+              <Text style={{marginLeft:8,fontSize:20, color:"#434549"}}>Front-End Developer</Text>
+          </View>
+
+       </View>
       </View>
     );
   }

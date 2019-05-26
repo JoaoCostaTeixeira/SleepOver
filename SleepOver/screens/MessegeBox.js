@@ -23,7 +23,7 @@ export default class MessegeBox extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows([
-         {image: "https://bootdey.com/img/Content/avatar/avatar6.png", username:"João"},
+         {image: "https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ", username:"João"},
          {image: "https://bootdey.com/img/Content/avatar/avatar2.png", username:"Manel"},
          {image: "https://bootdey.com/img/Content/avatar/avatar3.png", username:"Pedro"},
          {image: "https://bootdey.com/img/Content/avatar/avatar4.png", username:"Maria"},
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
   },
   box: {
     padding:5,
-    marginTop:10,
-    marginBottom:10,
+    marginTop:5,
+    marginBottom:5,
     backgroundColor: '#FFFFFF',
     flexDirection: 'row',
     shadowColor: 'black',
