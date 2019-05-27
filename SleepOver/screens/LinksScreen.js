@@ -26,9 +26,9 @@ export default class LinkScreen extends Component {
     super(props);
     this.state = {
       data: [
-        {id:1, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."},
-        {id:2, date:"9:50 am", type:'out', message: "Obrigado pela Reserva."} ,
-        {id:3, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."}, 
+        {id:1, date:"9:50 am", type:'out',  message: "Olá, gostaria de saber se será possivel levar o meu gato comigo."},
+        {id:2, date:"9:50 am", type:'in', message: "Olá. Sim é possivel."} ,
+        {id:3, date:"9:50 am", type:'out',  message: "Ok, muito obrigado. Até breve."}, 
         {id:4, date:"9:50 am", type:'in',  message: "Obrigado pela Reserva."}, 
       ]
     };

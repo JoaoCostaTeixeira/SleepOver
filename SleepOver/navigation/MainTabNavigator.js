@@ -6,7 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import Home from '../screens/Home';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import Login from '../screens/Login';
+import Calendars from '../screens/Calendar';
 import MessegeBox from '../screens/MessegeBox';
 import Reservas from '../screens/Reservas';
 import House from '../screens/House'
@@ -14,6 +14,7 @@ import House from '../screens/House'
 const HomeStack = createStackNavigator({
   Home: Home,
   House: House,
+  Calendars: Calendars,
 });
 
 HomeStack.navigationOptions = {

@@ -30,7 +30,7 @@ export default class House extends Component {
              <Text style={{marginLeft:8,fontSize:24, color:"#514f4f", fontWeight: 'bold'}}>50€</Text>
              <TouchableOpacity 
                 style={{borderRadius:8,backgroundColor:"#3192bf",width:90, height:40, borderWidth:1, borderColor:"#788091", marginLeft:125, alignItems:"center"}}
-                onPress ={()=> alert("Your booking is now pending")}
+                onPress ={()=> this.props.navigation.navigate('Calendars')}
              >
                     <Text style={{fontSize:24, color:"white", fontWeight: 'bold'}}>Book</Text>
              </TouchableOpacity>

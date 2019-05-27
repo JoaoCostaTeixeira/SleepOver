@@ -54,7 +54,7 @@ export default class MessegeBox extends Component {
                       <Image style={styles.image} source={{uri: user.image}}/>
                       
                        <Text style={styles.username}>{user.username}</Text>
-                       <Text style={styles.username2}>Olá obrigado pela reserva.</Text>
+                       <Text style={styles.username2}>Obrigado pela reserva.</Text>
                     </View>
                   </TouchableOpacity>
                 )
